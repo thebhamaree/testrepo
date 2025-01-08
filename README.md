@@ -47,3 +47,12 @@ sudo COPY calc.java /myapp/
 sudo CMD ["java", "/myapp/calc"]
 
 
+FROM ubuntu
+RUN apt update -y
+RUN apt install default-jdk -y  # Install JDK (Java Development Kit) for compiling Java code
+RUN mkdir /myapp
+COPY calc.java /myapp/
+WORKDIR /myapp
+RUN javac calc.java  # Compile the Java file to generate the .class file
+CMD ["java", "calc"]  # Run the compiled class file
+
