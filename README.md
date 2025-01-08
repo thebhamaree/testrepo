@@ -36,3 +36,14 @@ public class calc {
     }
 }
 
+
+
+
+sudo FROM ubuntu
+sudo RUN apt update -y
+sudo RUN apt install default-jre -y
+sudo RUN mkdir /myapp
+sudo COPY calc.java /myapp/
+sudo CMD ["java", "/myapp/calc"]
+
+
